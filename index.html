@@ -21,7 +21,7 @@
        
     <h2 class="text-primary" style=
     "margin-left: 15px; margin-bottom: 10px">
-    Hey Busisiwe Happiness Khanyile - I hope :)
+    Okay so I thought about the eyes story, came up with scenarios
 </h2>
  
 <form class="container" method="post" id="frmContact">
@@ -30,21 +30,22 @@
         <div class="card-body">
             <div class="form-group">
                 <label for="exampleFormControlInput1">
-                    Would you like to answer one question for me?
+                    Does what my eyes do to you give you any doubt?
                 </label>
                  
                 <input type="text" class="form-control"
-                name="fullname" id="fullname" required placeholder="Yes or No">
+                name="question1" id="question1" required placeholder="Yes or No">
             </div>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <label for="exampleFormControlInput1">
-                    Email address
+                    Do you like what they do to you?
                 </label>
                  
-                <input type="email" class="form-control"
-                name="email" id="email" required placeholder="name@example.com">
-            </div> -->
+                <input type="text" class="form-control"
+                name="question2" id="question2" required placeholder="Yes or No">
+            </div>
+
         </div>
         <button name="submit" type="submit" class="btn btn-primary"
             style="margin-left: 15px; margin-top: 10px">
@@ -55,7 +56,7 @@
             <h2>Thank you Busi Busi</h2>
             <a class="close" href="#">&times;</a>
             <div class="content">
-              Send me a message letting me know you answered and you'll come back to answer the serious question
+              Send me a message letting me know you answered I'll review the questions and give the appropriate answer :)
             </div>
           </div>
         </div>
@@ -110,8 +111,8 @@
       document.getElementById('frmContact').addEventListener('submit', function(e) {
           e.preventDefault();
           set(ref(db, 'users/' + Math.random().toString(36).slice(2, 7)), {
-              name: document.getElementById('fullname').value,
-              // email: document.getElementById('email').value,
+              question1: document.getElementById('question1').value,
+              question2: document.getElementById('question2').value,
           });
        
           alert('Your form is submitted');
@@ -123,8 +124,8 @@
         get(child(dbRef, 'users/')).then((snapshot) => {
       if (snapshot.exists()) {
         Object.keys(snapshot.val()).forEach((key) => {
-            console.log(`Name: ${snapshot.val()[key].name}`);
-            console.log(`Email: ${snapshot.val()[key].email}`);
+            console.log(`Name: ${snapshot.val()[key].question1}`);
+            console.log(`Email: ${snapshot.val()[key].question2}`);
             // console.log(`Subject: ${snapshot.val()[key].subject}`);
             // console.log(`Message: ${snapshot.val()[key].message}`);
         });
