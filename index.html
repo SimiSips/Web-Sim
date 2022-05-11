@@ -188,7 +188,8 @@
       x = setInterval(function() {    
 
         const now = new Date().getTime(),
-              distance = countDown - now;
+              //distance = countDown - now;
+              distance = 0;
 
         document.getElementById("days").innerText = Math.floor(distance / (day)),
           document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
@@ -196,7 +197,7 @@
           document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
         //do something later when date is reached
-        if (distance < 0) {
+        if (distance = 0) {
           document.getElementById("headline").innerText = "I likes you, and I wants you. Now we can do this the easy way or the hard way. The choice is yours😂😂";
           document.getElementById("countdown").style.display = "none";
           document.getElementById("content").style.display = "block";
